@@ -39,8 +39,8 @@ Predict `price_aprox_usd` in Buenos Aires and build a model that generalizes.
 ### 4. Results
 | Metric | Baseline | Ridge | Lasso |
 | :--- | :--- | :--- | :--- |
-| RMSE Test | [YOUR NUMBER] | [YOUR NUMBER] | [YOUR NUMBER] |
-| R² Test | [YOUR NUMBER] | [YOUR NUMBER] | [YOUR NUMBER] |
+| RMSE Test | [Have to fill] | [have to fill] | [have to fill] |
+| R² Test | [same] | [same] | [same] |
 
 **Interpretation:** Baseline overfit. Ridge gave best generalization and closed train/test gap. Key drivers: surface_covered, Palermo location.
 
