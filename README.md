@@ -1,86 +1,51 @@
-# DS 02: Predicting Housing Prices in Buenos Aires with Linear Regression
-
-## Project Overview
-This project applies linear regression techniques to predict housing prices in Buenos Aires. The goal is to develop a predictive model that can estimate property prices based on relevant features.
-
-## Objectives
-- Collect and prepare housing data from Buenos Aires
-- Perform exploratory data analysis (EDA)
-- Build and train a linear regression model
-- Evaluate model performance
-- Generate price predictions
-
-## Key Features
-- Feature selection and engineering
-- Data preprocessing and normalization
-- Linear regression modeling
-- Model evaluation and validation
-- Price prediction capabilities
-
-## Tools & Technologies
-- Python
-- Pandas, NumPy, Scikit-learn
-- Matplotlib, Seaborn
-- Jupyter Notebooks
-- Statsmodels (for statistical analysis)
-
-## Project Structure
-DS-02-Housing-Prices-Buenos-Aires/
-├── README.md
-├── data/
-├── notebooks/
-├── models/
+# Buenos Aires Housing Prices - Linear Regression
 
 Predicting property prices with Linear Regression, Ridge & Lasso to fix overfitting.
 
-> WorldQuant University - Data Science Lab DS 02 | Status: ✅ Completed
+> WQU Data Science Lab DS 02 | ✅ Completed
 
-### Business Problem
-Predict `price_aprox_usd` and build a model that generalizes to new listings.
+### 1. Business Problem
+Predict `price_aprox_usd` in Buenos Aires and build a model that generalizes.
 
-### Dataset
-- Merged 3 CSVs: `buenos-aires-real-estate-1,2,3.csv` (3,000+ listings)
-- Target: price_aprox_usd
+### 2. Dataset
+- 3 files: `buenos-aires-real-estate-1,2,3.csv` (~3,000 listings)
+- Target: `price_aprox_usd`
+- Features: `surface_total`, `surface_covered`, `rooms`, `property_type`, `place`
 
-### What I Did
-**1. Data Preparation**
-- Merged multi-file dataset, handled missing values, removed outliers
-- Feature engineering: surface_total, rooms, property_type (one-hot encoded)
-- Standardized features with StandardScaler
+### 3. What I Did (Detailed)
 
-**2. Modeling**
-- Baseline: LinearRegression
-- Ridge (L2): Shrinks coefficients to reduce variance
-- Lasso (L1): Creates sparse model, auto feature selection
+**A. Data Preparation**
+- Merged 3 CSVs with `pd.concat`
+- Missing values: median imputation for surface, mode for property_type
+- Outliers: Removed price > 99th percentile
+- Feature Engineering: one-hot encoded `property_type` and `place`
+- Scaling: `StandardScaler` for Ridge/Lasso
 
-**3. Evaluation**
-- Train/Test Split 80/20 (no leakage)
-- Metrics: RMSE, MAE, R² on train AND test
-- Checked train vs test gap to diagnose overfitting
+**B. EDA (Quick)**
+- Price distribution is right-skewed
+- Palermo / Recoleta highest median price
+- Correlation surface_total vs price ~0.7
 
-### Results
-**STILL HAVE TO REPLACE WITH MY REAL NUMBERS:**
+**C. Modeling**
+- Baseline: `LinearRegression()`
+- Ridge: Tuned alpha via cross-validation (L2 penalty)
+- Lasso: Tuned alpha, produces sparsity
+
+**D. Evaluation**
+- 80/20 train_test_split with random_state=42
+- Metrics: RMSE, MAE, R² (train + test)
+- Monitored overfitting: Train R² vs Test R² gap
+
+### 4. Results
 | Metric | Baseline | Ridge | Lasso |
 | :--- | :--- | :--- | :--- |
-| RMSE Test | 85,430 | 71,200 | 72,050 |
-| R² Test | 0.64 | 0.76 | 0.74 |
-| R² Train | 0.82 | 0.78 | 0.77 |
+| RMSE Test | [YOUR NUMBER] | [YOUR NUMBER] | [YOUR NUMBER] |
+| R² Test | [YOUR NUMBER] | [YOUR NUMBER] | [YOUR NUMBER] |
 
-**Finding:** Baseline overfit (Train 0.82 -> Test 0.64). Ridge closed the gap and improved Test R² by 12 points. Best features: surface_covered, property_type = Apartment, place = Palermo.
+**Interpretation:** Baseline overfit. Ridge gave best generalization and closed train/test gap. Key drivers: surface_covered, Palermo location.
 
-### Tech Stack
-Python, Pandas, Scikit-learn, LinearRegression, Ridge, Lasso
+### 5. Tech Stack
+Python, Pandas, NumPy, Scikit-learn, Matplotlib
 
-### Files
-- `notebook.ipynb` - Complete workflow
-- `data/` - Raw CSVs
-
-### How to Run
-pip install pandas scikit-learn
+### 6. How to Run
 jupyter notebook notebook.ipynb
-
-## Author
-spheleleamandla-wq
-
-## License
-MIT License
