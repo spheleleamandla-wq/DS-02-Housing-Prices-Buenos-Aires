@@ -25,7 +25,6 @@ This project applies linear regression techniques to predict housing prices in B
 - Statsmodels (for statistical analysis)
 
 ## Project Structure
-```
 DS-02-Housing-Prices-Buenos-Aires/
 ├── README.md
 ├── data/
@@ -60,7 +59,7 @@ Predict `price_aprox_usd` and build a model that generalizes to new listings.
 - Checked train vs test gap to diagnose overfitting
 
 ### Results
-**REPLACE WITH YOUR REAL NUMBERS:**
+**STILL HAVE TO REPLACE WITH MY REAL NUMBERS:**
 | Metric | Baseline | Ridge | Lasso |
 | :--- | :--- | :--- | :--- |
 | RMSE Test | 85,430 | 71,200 | 72,050 |
