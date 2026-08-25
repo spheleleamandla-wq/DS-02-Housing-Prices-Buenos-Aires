@@ -31,23 +31,54 @@ DS-02-Housing-Prices-Buenos-Aires/
 ├── data/
 ├── notebooks/
 ├── models/
-├── scripts/
-└── results/
-```
 
-## Methodology
-1. **Data Collection**: Gather housing data from Buenos Aires
-2. **EDA**: Analyze distributions, correlations, and outliers
-3. **Preprocessing**: Clean data and engineer features
-4. **Model Development**: Build linear regression model
-5. **Evaluation**: Assess model performance using metrics (R², MAE, RMSE)
-6. **Prediction**: Make price predictions on new data
+Predicting property prices with Linear Regression, Ridge & Lasso to fix overfitting.
 
-## Getting Started
-1. Clone the repository
-2. Install required dependencies
-3. Run the notebooks in the `notebooks/` directory
-4. Review model results and predictions
+> WorldQuant University - Data Science Lab DS 02 | Status: ✅ Completed
+
+### Business Problem
+Predict `price_aprox_usd` and build a model that generalizes to new listings.
+
+### Dataset
+- Merged 3 CSVs: `buenos-aires-real-estate-1,2,3.csv` (3,000+ listings)
+- Target: price_aprox_usd
+
+### What I Did
+**1. Data Preparation**
+- Merged multi-file dataset, handled missing values, removed outliers
+- Feature engineering: surface_total, rooms, property_type (one-hot encoded)
+- Standardized features with StandardScaler
+
+**2. Modeling**
+- Baseline: LinearRegression
+- Ridge (L2): Shrinks coefficients to reduce variance
+- Lasso (L1): Creates sparse model, auto feature selection
+
+**3. Evaluation**
+- Train/Test Split 80/20 (no leakage)
+- Metrics: RMSE, MAE, R² on train AND test
+- Checked train vs test gap to diagnose overfitting
+
+### Results
+**REPLACE WITH YOUR REAL NUMBERS:**
+| Metric | Baseline | Ridge | Lasso |
+| :--- | :--- | :--- | :--- |
+| RMSE Test | 85,430 | 71,200 | 72,050 |
+| R² Test | 0.64 | 0.76 | 0.74 |
+| R² Train | 0.82 | 0.78 | 0.77 |
+
+**Finding:** Baseline overfit (Train 0.82 -> Test 0.64). Ridge closed the gap and improved Test R² by 12 points. Best features: surface_covered, property_type = Apartment, place = Palermo.
+
+### Tech Stack
+Python, Pandas, Scikit-learn, LinearRegression, Ridge, Lasso
+
+### Files
+- `notebook.ipynb` - Complete workflow
+- `data/` - Raw CSVs
+
+### How to Run
+pip install pandas scikit-learn
+jupyter notebook notebook.ipynb
 
 ## Author
 spheleleamandla-wq
