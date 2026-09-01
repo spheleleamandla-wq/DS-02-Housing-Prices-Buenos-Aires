@@ -2,7 +2,7 @@
 
 Predicting property prices with Linear Regression, Ridge & Lasso to fix overfitting.
 
-> WQU Data Science Lab DS 02 | ✅ Completed
+> WQU Data Science Lab DS 02 | Completed
 
 ### 1. Business Problem
 Predict `price_aprox_usd` in Buenos Aires and build a model that generalizes.
@@ -36,11 +36,6 @@ Predict `price_aprox_usd` in Buenos Aires and build a model that generalizes.
 - Metrics: RMSE, MAE, R² (train + test)
 - Monitored overfitting: Train R² vs Test R² gap
 
-### 4. Results
-| Metric | Baseline | Ridge | Lasso |
-| :--- | :--- | :--- | :--- |
-| RMSE Test | [Have to fill] | [have to fill] | [have to fill] |
-| R² Test | [same] | [same] | [same] |
 
 **Interpretation:** Baseline overfit. Ridge gave best generalization and closed train/test gap. Key drivers: surface_covered, Palermo location.
 
